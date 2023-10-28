@@ -13,10 +13,14 @@ namespace TripServiceKata.Trip
 
             CheckLoggedUser(loggedUser);
 
-            return CheckFriendTripList(user, tripList, loggedUser);
+            return FriendTripList(user, tripList, loggedUser);
+        }
+        private static void CheckLoggedUser(User.User loggedUser)
+        {
+            if (loggedUser == null) throw new UserNotLoggedInException();
         }
 
-        private List<Trip> CheckFriendTripList(User.User user, List<Trip> tripList, User.User loggedUser)
+        private List<Trip> FriendTripList(User.User user, List<Trip> tripList, User.User loggedUser)
         {
             if (IsFriend(user, loggedUser))
             {
@@ -24,11 +28,6 @@ namespace TripServiceKata.Trip
             }
 
             return tripList;
-        }
-
-        private static void CheckLoggedUser(User.User loggedUser)
-        {
-            if (loggedUser == null) throw new UserNotLoggedInException();
         }
 
         bool IsFriend(User.User user, User.User loggedUser)
