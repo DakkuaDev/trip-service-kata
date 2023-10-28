@@ -13,7 +13,7 @@ namespace TripServiceKata.Trip
             bool isFriend = false;
             if (loggedUser != null)
             {
-                isFriend = IsFriend();
+                isFriend = IsFriend(user, loggedUser);
                 if (isFriend)
                 {
                     tripList = TripDAO.FindTripsByUser(user);
@@ -25,11 +25,13 @@ namespace TripServiceKata.Trip
                 throw new UserNotLoggedInException();
             }
 
-            bool IsFriend()
-            {
-                List<User.User> friends = user.GetFriends();
-                return friends.Exists(friend => friend.Equals(loggedUser));
-            }
+
+        }
+
+        bool IsFriend(User.User user, User.User loggedUser)
+        {
+            List<User.User> friends = user.GetFriends();
+            return friends.Exists(friend => friend.Equals(loggedUser));
         }
     }
 }
