@@ -10,10 +10,10 @@ namespace TripServiceKata.Trip
         {
             List<Trip> tripList = new List<Trip>();
             User.User loggedUser = UserSession.GetInstance().GetLoggedUser();
-            bool isFriend = false;
+
             if (loggedUser != null)
             {
-                if(isFriend = IsFriend(user, loggedUser))
+                if(IsFriend(user, loggedUser))
                 {
                     tripList = TripDAO.FindTripsByUser(user);
                 }
