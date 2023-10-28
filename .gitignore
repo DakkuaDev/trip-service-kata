@@ -73,3 +73,5 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 *.xcuserstate
+/.vs
+/c#/TripServiceKata/.vs
