@@ -13,9 +13,7 @@ namespace TripServiceKata.Trip
 
             CheckLoggedUser(loggedUser);
 
-            tripList = CheckFriendTripList(user, tripList, loggedUser);
-
-            return tripList;
+            return CheckFriendTripList(user, tripList, loggedUser);
         }
 
         private List<Trip> CheckFriendTripList(User.User user, List<Trip> tripList, User.User loggedUser)
