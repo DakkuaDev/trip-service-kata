@@ -27,16 +27,8 @@ namespace TripServiceKata.Trip
 
             bool IsFriend()
             {
-                foreach (User.User friend in user.GetFriends())
-                {
-                    if (friend.Equals(loggedUser))
-                    {
-                        isFriend = true;
-                        break;
-                    }
-                }
-
-                return isFriend;
+                List<User.User> friends = user.GetFriends();
+                return friends.Exists(friend => friend.Equals(loggedUser));
             }
         }
     }
