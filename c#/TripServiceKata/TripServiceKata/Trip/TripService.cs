@@ -13,6 +13,13 @@ namespace TripServiceKata.Trip
 
             CheckLoggedUser(loggedUser);
 
+            tripList = CheckFriendTripList(user, tripList, loggedUser);
+
+            return tripList;
+        }
+
+        private List<Trip> CheckFriendTripList(User.User user, List<Trip> tripList, User.User loggedUser)
+        {
             if (IsFriend(user, loggedUser))
             {
                 tripList = TripDAO.FindTripsByUser(user);
