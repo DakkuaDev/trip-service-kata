@@ -13,11 +13,11 @@ namespace TripServiceKata.Trip
             bool isFriend = false;
             if (loggedUser != null)
             {
-                isFriend = IsFriend(user, loggedUser);
-                if (isFriend)
+                if(isFriend = IsFriend(user, loggedUser))
                 {
                     tripList = TripDAO.FindTripsByUser(user);
                 }
+
                 return tripList;
             }
             else
