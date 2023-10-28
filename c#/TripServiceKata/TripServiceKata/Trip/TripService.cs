@@ -10,6 +10,7 @@ namespace TripServiceKata.Trip
         {
             List<Trip> tripList = new List<Trip>();
             User.User loggedUser = UserSession.GetInstance().GetLoggedUser();
+
             CheckLoggedUser(loggedUser);
 
             if (IsFriend(user, loggedUser))
